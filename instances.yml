@@ -19,6 +19,6 @@ books-storage.s2-replica:
   advertise_uri: localhost:3305
   http_port: 8085
 
-books-storage-stateboard:
-  listen: localhost:3310
-  password: passwd
+# books-storage-stateboard:
+#   listen: localhost:3310
+#   password: passwd
