@@ -21,7 +21,7 @@ local function init_space()
             format = {
                 {'key', 'string'},
                 {'bucket_id', 'unsigned'},
-                {'value', 'table'},
+                {'value', 'map'},
             },
 
             if_not_exists = true,
@@ -45,7 +45,7 @@ local function book_add(book)
 
     local exist = box.space.books:get(book.key)
     if exist ~= nil then
-        log.info("Book with id %d already exist", book.key)
+        log.info("Book with id %s already exist", book.key)
         return {ok = false, error = err_storage:new("Book already exist")}
     end
 
@@ -60,7 +60,7 @@ local function book_update(key, changes)
     local exists = box.space.books:get(key)
 
     if exists == nil then
-        log.info("Book with id %d not found", key)
+        log.info("Book with id %s not found", key)
         return {book = nil, error = err_storage:new("Book not found")}
     end
 
@@ -79,7 +79,7 @@ local function book_get(id)
     
     local book = box.space.books:get(id)
     if book == nil then
-        log.info("Book with id %d not found", id)
+        log.info("Book with key %s not found", id)
         return {books = nil, error = err_storage:new("Book not found")}
     end
 
@@ -94,7 +94,7 @@ local function book_delete(key)
     
     local exists = box.space.books:get(key)
     if exists == nil then
-        log.info("Book with id %d not found", key)
+        log.info("Book with id %s not found", key)
         return {ok = false, error = err_storage:new("Book not found")}
     end
     exists = tuple_to_table(box.space.books:format(), exists)
