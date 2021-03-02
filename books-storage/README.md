@@ -46,7 +46,7 @@ cartridge start
 # Использование  
 API поддерживает запросы четырёх типов:  
 ```
-- POST /kv body: {key: "some_key", "value": {SOME ARBITRARY JSON}} 
+- POST /kv body: {key: "id", "value": {SOME ARBITRARY JSON}} 
 - PUT kv/{id} body: {"value": {SOME ARBITRARY JSON}} 
 - GET kv/{id} 
 - DELETE kv/{id} 
