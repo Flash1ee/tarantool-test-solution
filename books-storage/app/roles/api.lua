@@ -88,7 +88,7 @@ local function http_book_add(req)
 end
 
 local function http_book_update(req)
-    local book_id = tonumber(req:stash('id'))
+    local book_id = req:stash('id')
     if book_id == nil then 
         return internal_error_response(req)
     end
@@ -126,7 +126,7 @@ local function http_book_update(req)
 end
 
 local function http_book_get(req)
-    local book_id = tonumber(req:stash('id'))
+    local book_id = req:stash('id')
     local router = cartridge.service_get('vshard-router').get()
     local bucket_id = router:bucket_id(book_id)
 
@@ -150,7 +150,7 @@ local function http_book_get(req)
 end
 
 local function http_book_delete(req)
-    local key = tonumber(req:stash('id'))
+    local key = req:stash('id')
     local router = cartridge.service_get('vshard-router').get()
     local bucket_id = router:bucket_id(key)
 
