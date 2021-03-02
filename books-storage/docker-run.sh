@@ -1,0 +1,1 @@
+sudo docker run -d --rm --name books-storage -p 8081:8081 books
