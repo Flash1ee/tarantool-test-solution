@@ -81,7 +81,7 @@ curl -X GET -v http://localhost:8081/kv/1
 ```
 Получим  
 ```
-{"key":"5","value":{"year":1869,"name":"War and peace","author":"Leo Tolstoy"}}
+{"key":"1","value":{"year":1869,"name":"War and peace","author":"Leo Tolstoy"}}
 ```  
 Если бы ключ не существовал, то получили бы  
 ```
@@ -129,4 +129,5 @@ curl -X GET -v http://localhost:8081/kv/1
 Получим
 ```
 {"info":"Book not found"}
-```
+```  
+При работе с удалённым сервером вместо `http://localhost:8081` следует использовать `http://flashie.me:8081`  
