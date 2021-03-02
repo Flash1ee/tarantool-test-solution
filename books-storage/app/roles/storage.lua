@@ -21,7 +21,7 @@ local function init_space()
             format = {
                 {'key', 'unsigned'},
                 {'bucket_id', 'unsigned'},
-                {'value', 'table'},
+                {'value', 'map'},
             },
 
             if_not_exists = true,
