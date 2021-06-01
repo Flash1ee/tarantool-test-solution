@@ -1,6 +1,5 @@
 
 local t = require('luatest')
-local log = require('log')
 local g = t.group('unit_storage_utils')
 local helper = require('test.helper.unit')
 
