@@ -9,7 +9,7 @@ local deepcopy = require('table').deepcopy
 local s = { ["name"] = 'War and peace', ["author"] = 'Leo Tolstoy'}
 local val = deepcopy(s)
 local test_book = {
-    key = 1,
+    key = "1",
     value= "",
 }
 test_book.value=s

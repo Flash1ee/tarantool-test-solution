@@ -22,6 +22,8 @@ git clone https://github.com/Flash1ee/tarantool-test-solution.git && cd tarantoo
 Для запуска тестов нужно установить `luatest`
 ```
 tarantoolctl rocks install luatest
+./deps.sh
+cartridge build
 .rocks/bin/luatest test/
 ```  
 В результате запустятся юнит и интеграционные тесты.  

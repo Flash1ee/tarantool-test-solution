@@ -19,7 +19,7 @@ local function init_space()
         'books',
         {
             format = {
-                {'key', 'unsigned'},
+                {'key', 'string'},
                 {'bucket_id', 'unsigned'},
                 {'value', 'any'},
             },
@@ -55,7 +55,7 @@ local function book_add(book)
 end
 
 local function book_update(key, changes)
-    checks('number', 'table')
+    checks('string', 'table')
 
     local exists = box.space.books:get(key)
 
@@ -75,11 +75,11 @@ local function book_update(key, changes)
 end
 
 local function book_get(id)
-    checks('number')
+    checks('string')
     
     local book = box.space.books:get(id)
     if book == nil then
-        log.info("Book with id %d not found", id)
+        log.info("Book with id %s not found", id)
         return {books = nil, error = err_storage:new("Book not found")}
     end
 
@@ -90,7 +90,7 @@ local function book_get(id)
 end
 
 local function book_delete(key)
-    checks('number')
+    checks('string')
     
     local exists = box.space.books:get(key)
     if exists == nil then
