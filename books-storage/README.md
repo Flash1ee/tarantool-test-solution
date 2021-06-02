@@ -18,7 +18,15 @@ git clone https://github.com/Flash1ee/tarantool-test-solution.git && cd tarantoo
  
 ```  
 Установить [Tarantool](https://www.tarantool.io/ru/) и [Tarantool Cartridge](https://github.com/tarantool/cartridge-cli#installation)  
-Выполнить   
+ 
+Для запуска тестов нужно установить `luatest`
+```
+tarantoolctl rocks install luatest
+.rocks/bin/luatest test/
+```  
+В результате запустятся юнит и интеграционные тесты.  
+
+Для запуска приложения выполнить.  
 ```
 cartridge build
 cartridge start
